@@ -4,6 +4,18 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'hacker-news',
     environment: environment,
+    
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://cdn.firebase.com https://*.firebaseio.com",
+      'frame-src': "'self' https://*.firebaseio.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'connect-src': "'self' https://*.firebaseio.com wss://*.firebaseio.com",
+      'img-src': "'self' res.cloudinary.com data:",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
+    },
+
+    firebase: 'https://hacker-news.firebaseio.com/v0',
+    
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -18,6 +30,8 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+
+  ENV.stubFirebase = false;
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
