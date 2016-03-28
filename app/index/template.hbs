@@ -1,0 +1,17 @@
+<h3>Top stories</h3>
+
+{{#if topstories.length}}
+  {{!-- {{pagination-links routeName='topstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}} --}}
+
+  <ul class="news-items">
+    {{#each resultsForPage as |topstory|}}
+      {{!-- {{story-item rank=story.rank item=story.item}} --}}
+      {{topstory.item.title}}
+    {{/each}}
+  </ul>
+
+  {{!-- {{pagination-links routeName='topstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}} --}}
+{{else}}
+  {{!-- {{partial 'loading'}} --}}
+  No top stories.
+{{/if}}
